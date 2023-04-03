@@ -22,9 +22,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private PanelBotones botonera;
     private JTextArea areaTexto;
     private int tipoOperacion;
-    private int operando1;
-    private int operando2;
-    private int resultado;
+    private double operando1;
+    private double operando2;
+    private double resultado;
 
     // Constructor
     public PanelPrincipal() {
@@ -62,11 +62,6 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         // Se obtiene el objeto que desencadena el evento
         Object o = ae.getSource();
 
-        // Si es un botón
-//        if (o instanceof JButton){
-//            System.out.println(((JButton) o).getText());
-//            areaTexto.setText(((JButton) o).getText());
-//        }
         //si es un botón
         if (o instanceof JButton) {
             String buttonText = ((JButton) o).getText();
@@ -74,13 +69,24 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                 case "+":
                     //sumas
                     tipoOperacion = 1;
-                    operando1 = (int) Double.parseDouble(areaTexto.getText());
+                    operando1 = Double.parseDouble(areaTexto.getText());
                     areaTexto.setText("");
                     break;
                 case "-":
                     //restas
                     tipoOperacion = 2;
-                    operando1 = (int) Double.parseDouble(areaTexto.getText());
+                    operando1 = Double.parseDouble(areaTexto.getText());
+                    areaTexto.setText("");
+                    break;
+                case "*":
+                    //multiplicaiones
+                    tipoOperacion = 3;
+                    operando1 = Double.parseDouble(areaTexto.getText());
+                    areaTexto.setText("");
+                    break;
+                case "/":
+                    tipoOperacion = 4; // División
+                    operando1 = Double.parseDouble(areaTexto.getText());
                     areaTexto.setText("");
                     break;
                 case "=":
@@ -95,6 +101,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                         case 2:
                             //restas
                             resultado = operando1 - operando2;
+                            break;
+                        case 3:
+                             //multiplicaciones
+                            resultado = operando1 * operando2;
+                            break;
+                        case 4:
+                            //divisiones
+                            resultado = operando1 / operando2;
                             break;
                     }
 
