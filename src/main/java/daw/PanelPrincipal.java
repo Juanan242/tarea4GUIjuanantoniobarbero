@@ -89,22 +89,28 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     double resultado = 0.0;
                     switch (tipoOperacion) {
                         case 1:
-                             //sumas
+                            //sumas
                             resultado = operando1 + operando2;
                             break;
                         case 2:
-                             //restas
+                            //restas
                             resultado = operando1 - operando2;
                             break;
                     }
-                
+
                     areaTexto.setText(Double.toString(resultado));
                     //reseteo la operacion
-                    tipoOperacion = -1; 
+                    tipoOperacion = -1;
+                    break;
+                case "C":
+                    //borra lo que hay en pantalla
+                    areaTexto.setText("");
+                    //se resetea la operacion
+                    tipoOperacion = -1;
                     break;
 
                 default:
-                     //por defecto los numeros
+                    //por defecto los numeros
                     areaTexto.setText(areaTexto.getText() + buttonText);
                     break;
             }
