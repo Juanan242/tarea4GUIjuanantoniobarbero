@@ -40,11 +40,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         // Creamos el panel de botones
         botonera = new PanelBotones();
         // Creamos el área de texto
-        areaTexto = new JTextArea(10, 50);
+        areaTexto = new JTextArea(10, 25);
         areaTexto.setEditable(false);
 
         areaTexto.setBackground(Color.white);
-
+        areaTexto.setFont(new java.awt.Font("Dialog", 0, 25));
         //Establecemos layout del panel principal
         this.setLayout(new BorderLayout());
         // Colocamos la botonera y el área texto
@@ -103,7 +103,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                             resultado = operando1 - operando2;
                             break;
                         case 3:
-                             //multiplicaciones
+                            //multiplicaciones
                             resultado = operando1 * operando2;
                             break;
                         case 4:
